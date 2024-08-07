@@ -17,7 +17,9 @@ class FrontController extends Controller
         $query = $request->input('query');
 
         if ($query) {
-            $galleries = Gallery::where('title', 'LIKE', "%{$query}%")->get();
+            $galleries = Gallery::where('title', 'LIKE', "%{$query}%")
+                                ->orWhere('description', 'LIKE', "%{$query}%")
+                                ->get();
         } else {
             $galleries = Gallery::all();
         }
