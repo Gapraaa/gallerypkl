@@ -16,13 +16,13 @@
                 @if ($gallery->date)
                     <p class="card-text"><small class="text-muted">Date: {{ $gallery->date->format('Y-m-d') }}</small></p>
                 @endif
-                <a href="{{ route('galleries.index') }}" class="btn btn-secondary">Back to Gallery</a>
+                <!-- <a href="{{ route('galleries.index') }}" class="btn btn-secondary">Back to Gallery</a>
                 <a href="{{ route('galleries.edit', $gallery->id) }}" class="btn btn-primary">Edit</a>
                 <form action="{{ route('galleries.destroy', $gallery->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this image?');">Delete</button>
-                </form>
+                </form> -->
             </div>
         </div>
     </div>

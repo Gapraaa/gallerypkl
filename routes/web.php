@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ArticleController;
@@ -15,11 +17,10 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontController::class,'index']);
+Route::get('/search', [FrontController::class, 'search'])->name('home.search');
 
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/galleries', [GalleryController::class, 'index'])->name('galleries.index');
 Route::get('/galleries/create', [GalleryController::class, 'create'])->name('galleries.create');
@@ -29,5 +30,5 @@ Route::get('/galleries/{gallery}/edit', [GalleryController::class, 'edit'])->nam
 Route::put('/galleries/{gallery}', [GalleryController::class, 'update'])->name('galleries.update');
 Route::delete('/galleries/{gallery}', [GalleryController::class, 'destroy'])->name('galleries.destroy');
 
-Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
